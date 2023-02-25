@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "user_active_games",
   "version": "1.0.0",
-  "description": "This is the backend for the sudokuru service",
+  "description": "This is the user_active_games service for the sudokuru backend",
   "main": "index.js",
   "scripts": {
     "test:unit": "jest --testPathPattern=src/tests/unit",
@@ -38,7 +38,6 @@
     "dotenv-cli": "^6.0.0",
     "jest": "^29.3.1",
     "jest-junit": "^15.0.0",
-    "newman": "^5.3.2",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.6",

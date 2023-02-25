@@ -1,4 +1,4 @@
-service: Backend
+service: UserActiveGames
 provider:
   name: aws
   runtime: nodejs18.x
