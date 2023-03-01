@@ -51,7 +51,7 @@ async function queryUpload(inputObject, collection) {
  */
 async function querySearchAND(filterValues, collection) {
     await module.exports.connectToDB();
-    return await collection.find({ $and : filterValues });
+    return await collection.find({ $and: filterValues });
 }
 
 /**
@@ -63,7 +63,7 @@ async function querySearchAND(filterValues, collection) {
  */
 async function queryUpdate(searchCriteria, replaceCriteria, collection){
     await module.exports.connectToDB();
-    return await collection.updateMany({ $and : searchCriteria }, { $set: replaceCriteria } );
+    return await collection.updateMany({ $and: searchCriteria }, { $set: replaceCriteria } );
 }
 
 /**
@@ -75,7 +75,7 @@ async function queryUpdate(searchCriteria, replaceCriteria, collection){
  */
 async function queryDeleteAND(filterValues, collection) {
     await module.exports.connectToDB();
-    return await collection.deleteMany({ $and : filterValues });
+    return await collection.deleteMany({ $and: filterValues });
 }
 
 export = { queryUpload: queryUpload, connectToDB, querySearchAND: querySearchAND, queryUpdate: queryUpdate, queryDeleteAND: queryDeleteAND };

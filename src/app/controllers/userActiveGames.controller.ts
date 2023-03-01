@@ -1,8 +1,8 @@
 /**
  * This is the controller file for the puzzle endpoint
  * This file is called by the router file and calls the service file
- * There are four main functions {@link createPuzzle}, {@link searchPuzzle},
- * {@link updatePuzzle}, and {@link removeUserActiveGame}
+ * There are four main functions {@link createUserActiveGame}, {@link searchUserActiveGame},
+ * {@link updateUserActiveGame}, and {@link removeUserActiveGame}
  * The main purpose of the controller is to make sure that only validated and sanitized data
  * moves on to the service function
  * @module UserActiveGamesController
@@ -42,6 +42,7 @@ async function createUserActiveGame(req, res, next) {
 async function searchUserActiveGame(req, res, next) {
 
     const allData = matchedData(req, { locations: ['query'] });
+
     try {
         res.json(await userActiveGamesService.userActiveGamesPuzzle(allData));
     } catch(err) {

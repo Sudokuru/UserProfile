@@ -2,14 +2,13 @@
  * This is the typescript interfaces for our JSON data
  * //todo add typings to sanitized data
  * There are several 'helper' interfaces that break out some duplicate code
- * The remaining interfaces correlate to the mongoose schemas
+ * The remaining interfaces correlate to the mongoose schema
  */
 
 /**
  * Below are the helper interfaces
  * They include: {@link numWrongCellsPlayedPerStrategy}
- * {@link strategyTypes} and {@link moves}
- * // todo refactor strategyTypes to strategies
+ * and {@link moves}
  * @module Interfaces
  *
  */
@@ -41,31 +40,6 @@ interface numWrongCellsPlayedPerStrategy {
     SINGLES_CHAINING: number
 }
 
-interface strategyTypes {
-    NAKED_SINGLE: boolean,
-    HIDDEN_SINGLE: boolean,
-    NAKED_PAIR: boolean,
-    NAKED_TRIPLET: boolean,
-    NAKED_QUADRUPLET: boolean,
-    NAKED_QUINTUPLET: boolean,
-    NAKED_SEXTUPLET: boolean,
-    NAKED_SEPTUPLET: boolean,
-    NAKED_OCTUPLET: boolean,
-    HIDDEN_PAIR: boolean,
-    HIDDEN_TRIPLET: boolean,
-    HIDDEN_QUADRUPLET: boolean,
-    HIDDEN_QUINTUPLET: boolean,
-    HIDDEN_SEXTUPLET: boolean,
-    HIDDEN_SEPTUPLET: boolean,
-    HIDDEN_OCTUPLET: boolean,
-    POINTING_PAIR: boolean,
-    POINTING_TRIPLET: boolean,
-    BOX_LINE_REDUCTION: boolean,
-    X_WING: boolean,
-    SWORDFISH: boolean,
-    SINGLES_CHAINING: boolean
-}
-
 interface moves {
     puzzleCurrentState: string,
     puzzleCurrentNotesState: string
@@ -73,57 +47,9 @@ interface moves {
 }
 
 /**
- * Below are the interfaces for the Mongo schemas
- * They include: {@link Puzzle}, {@link UserProfile}, {@link UserGameStatistics}
- * {@link UserGameSearchFilters}, {@link userActiveGames}, and {@link userGameStats}
+ * Below are the interfaces for the {@link userActiveGames} Mongo schemas
  * //todo make casing of types consistant
- *
  */
-export interface Puzzle {
-    puzzle: string,
-    puzzleSolution: string,
-    strategies: strategyTypes,
-    difficulty: number,
-    fastestSolveTime: number,
-    averageSolveTime: number,
-    numUsersPlayed: number,
-    numTimesPlayed: number,
-    trulyUnique: boolean,
-    drillStrategies: strategyTypes,
-    calendarDate?: Date,
-    imageUrl?: string,
-    description?: string
-}
-
-export interface UserProfile {
-    userId: string,
-    userEmail: string,
-    userName: string,
-    userPreferences: {
-        savePuzzleData: boolean,
-        theme: string,
-        gamePreferences: {
-            notifyOnWrongCell: boolean,
-            highlightAllSelectedNumber: boolean,
-            highlightSelectedBox: boolean,
-            highlightSelectedRow: boolean,
-            playMusic: boolean,
-            musicIntensify: boolean
-        }
-    }
-}
-
-export interface UserGameSearchFilters {
-    userId: string,
-    gameSearchPreferences: {
-        defaultSearchType: string,
-        difficulty: {
-            low: number,
-            high: number
-        },
-        strategyTypes: strategyTypes
-    }
-}
 
 export interface userActiveGames {
     userID: string,
@@ -132,30 +58,5 @@ export interface userActiveGames {
     moves: moves[],
     numHintsAskedFor: number,
     numWrongCellsPlayed: number,
-    numWrongCellsPlayedPerStrategy: numWrongCellsPlayedPerStrategy
-}
-
-export interface userGameStats {
-    userID: string,
-    dateRange: string,
-    gamesPlayed: [{
-        puzzle: string,
-        moves: moves[],
-        numTimesPlayed: number,
-        initialSolveTime: number,
-        fastestSolveTime: number,
-        averageMoveTime: number,
-        numHintsAskedFor: number,
-        numWrongCellsPlayed: number,
-        numCorrectCellsPlayed: number,
-        numWrongCellsPlayedPerStrategy: numWrongCellsPlayedPerStrategy
-    }],
-    averageSolveTime: number,
-    fastestSolveTime: number,
-    averageMoveTime: number,
-    numHintsAskedFor: number,
-    numWrongCellsPlayed: number,
-    numGamesPlayed: number,
-    numGamedFailed: number,
     numWrongCellsPlayedPerStrategy: numWrongCellsPlayedPerStrategy
 }
