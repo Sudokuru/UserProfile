@@ -11,7 +11,7 @@
 import {CustomError, CustomErrorEnum} from "../models/error.model";
 
 const dataBase = require ('./db.service');
-const UserInfoModel = require("../models/db.gameInfo.model");
+const UserPausedGames = require("../models/db.gameInfo.model");
 
 /**
  * This function takes the Active Games JSON objects and sends them to the upload function
@@ -19,7 +19,7 @@ const UserInfoModel = require("../models/db.gameInfo.model");
  * @param userActiveGames This is an array of Active Games JSON objects puzzles
  */
 async function userActiveGamesCreateService(userActiveGames) {
-    return await dataBase.queryUpload(userActiveGames, UserInfoModel.UserPausedGames);
+    return await dataBase.queryUpload(userActiveGames, UserPausedGames);
 }
 
 /**
@@ -29,7 +29,7 @@ async function userActiveGamesCreateService(userActiveGames) {
  * @param userActiveGames this is a JSON object that stores the input query
  */
 async function userActiveGamesSearchService(userActiveGames) {
-    let res = await dataBase.querySearchAND(filterInputQuery(userActiveGames), UserInfoModel.UserPausedGames);
+    let res = await dataBase.querySearchAND(filterInputQuery(userActiveGames), UserPausedGames);
 
     if (res.length == 0){
         throw new CustomError(CustomErrorEnum.USER_ACTIVE_GAME_NOT_FOUND, 404);
@@ -45,7 +45,7 @@ async function userActiveGamesSearchService(userActiveGames) {
  * @param queryData this stores a JSON object with values used to retrieve puzzles to be updated
  */
 async function userActiveGamesUpdateService(bodyData, queryData) {
-    return await dataBase.queryUpdate(filterInputQuery(queryData), bodyData, UserInfoModel.UserPausedGames);
+    return await dataBase.queryUpdate(filterInputQuery(queryData), bodyData, UserPausedGames);
 }
 
 /**
@@ -55,7 +55,7 @@ async function userActiveGamesUpdateService(bodyData, queryData) {
  * @param userActiveGames this stores a JSON object that stores the query
  */
 async function puzzleRemoveService(userActiveGames) {
-    return await dataBase.queryDeleteAND(filterInputQuery(userActiveGames), UserInfoModel.UserPausedGames);
+    return await dataBase.queryDeleteAND(filterInputQuery(userActiveGames), UserPausedGames);
 }
 
 /**

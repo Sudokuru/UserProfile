@@ -22,6 +22,7 @@ const userActiveGamesService = require('../services/userActiveGames.service');
 async function createUserActiveGame(req, res, next) {
 
     const allData = Object.values(matchedData(req, { locations: ['body'] }));
+    allData.pop();
     try {
         // override successful completion code of 200 to 201 for successful object creation
         res.status(201).json(await userActiveGamesService.createUserActiveGames(allData));
