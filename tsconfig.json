@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "types": ["node", "jest", "mocha"],
+    "types": ["node", "mocha"],
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./src",
