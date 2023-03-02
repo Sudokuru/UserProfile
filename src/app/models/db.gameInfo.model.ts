@@ -8,7 +8,7 @@
 
 import { Schema } from 'mongoose';
 import * as mongoose from "mongoose";
-import { userActiveGames, userGameStats } from "./interfaces";
+import { userActiveGames } from "./interfaces";
 
 // turns on debug mode so we can see results of successful requests
 mongoose.set({ debug: true, autoCreate: true})
