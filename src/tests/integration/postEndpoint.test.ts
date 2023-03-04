@@ -6,11 +6,11 @@ import { globalTestData} from "./globalTestData.test";
 
 request = request('http://localhost:3001');
 
-describe('Test POST requests for /api/v1/user/activeGames', function () {
+describe('Test POST requests for /api/v1/user/Profiles', function () {
     describe('Test code 201 POST requests', function () {
         it('Post ActivePuzzle1 returns 201 and expected response', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.activePuzzle1])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -29,7 +29,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post ActivePuzzle1 and ActivePuzzle2 returns 201 and expected response', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.activePuzzle1, postTestData.activePuzzle2])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -68,7 +68,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post invalid path 2 returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames/invalid')
+                .post('/api/v1/user/Profiles/invalid')
                 .send([postTestData.activePuzzle1])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -96,14 +96,14 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post duplicate activePuzzle returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.activePuzzle1])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
                 .end(function(err, res) {
                 });
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.activePuzzle1])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -117,7 +117,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post no body returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send()
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -131,7 +131,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post empty user id field returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postUserIDBlank])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -145,7 +145,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post no user id field returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postUserIDNotPresent])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -159,7 +159,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post user id is integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postUserIDIsInt])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -173,7 +173,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post empty puzzle field returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleBlank])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -187,7 +187,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post no puzzle field returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleNotPresent])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -201,7 +201,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzle too long returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleIsTooLong])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -215,7 +215,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzle too short returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleIsTooShort])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -229,7 +229,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzle invalid character returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleHasInvalidCharacter])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -243,7 +243,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post currentTime is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postCurrentTimeIsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -257,7 +257,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzleCurrentState is too long returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleCurrentStateIsTooLong])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -271,7 +271,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzleCurrentState is too short returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleCurrentStateIsTooShort])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -285,7 +285,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzleCurrentState has invalid character returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleCurrentStateHasInvalidCharacter])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -299,7 +299,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzleCurrentNotesState is too long returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleCurrentNotesStateIsTooLong])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -313,7 +313,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzleCurrentNotesState is too short returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleCurrentNotesStateIsTooShort])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -327,7 +327,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post puzzleCurrentNotesState has invalid character returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postPuzzleCurrentNotesStateHasInvalidCharacter])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -341,7 +341,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post numHintsAskedFor is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postNumHintsAskedForIsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -355,7 +355,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post numWrongCellsPlayed is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.postNumWrongCellsPlayedIsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -369,7 +369,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post NAKED_SINGLE is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_NAKED_SINGLE_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -383,7 +383,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post HIDDEN_SINGLE is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.HIDDEN_SINGLE_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -397,7 +397,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post NAKED_PAIR is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.NAKED_PAIR_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -411,7 +411,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post NAKED_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.NAKED_TRIPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -425,7 +425,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post NAKED_QUADRUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_NAKED_QUADRUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -439,7 +439,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post NAKED_QUINTUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_NAKED_QUINTUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -453,7 +453,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post NAKED_SEXTUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_NAKED_SEXTUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -467,7 +467,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post NAKED_SEPTUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_NAKED_SEPTUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -481,7 +481,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post NAKED_OCTUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_NAKED_OCTUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -495,7 +495,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post HIDDEN_PAIR is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_HIDDEN_PAIR_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -509,7 +509,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post HIDDEN_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_HIDDEN_TRIPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -523,7 +523,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post HIDDEN_QUADRUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_HIDDEN_QUADRUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -537,7 +537,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post HIDDEN_QUINTUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_HIDDEN_QUINTUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -551,7 +551,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post HIDDEN_SEXTUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_HIDDEN_SEXTUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -565,7 +565,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post HIDDEN_SEPTUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_HIDDEN_SEPTUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -579,7 +579,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post HIDDEN_OCTUPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_HIDDEN_OCTUPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -593,7 +593,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post POINTING_PAIR is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_POINTING_PAIR_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -607,7 +607,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post POINTING_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_POINTING_TRIPLET_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -621,7 +621,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post BOX_LINE_REDUCTION is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_BOX_LINE_REDUCTION_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -635,7 +635,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post X_WING is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_X_WING_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -649,7 +649,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post SWORDFISH is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_SWORDFISH_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -663,7 +663,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post SINGLES_CHAINING is not integer returns 400 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.post_SINGLES_CHAINING_IsNotInteger])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -679,7 +679,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
     describe('Test code 401 POST requests', function () {
         it('Post no Auth header returns 401 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.activePuzzle1])
                 .set('Content-Type', 'application/json')
                 .expect('Content-Type', /json/)
@@ -692,7 +692,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post invalid Auth header returns 401 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.activePuzzle1])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer')
@@ -706,7 +706,7 @@ describe('Test POST requests for /api/v1/user/activeGames', function () {
 
         it('Post expired Auth token returns 401 error message', function (done) {
             request
-                .post('/api/v1/user/activeGames')
+                .post('/api/v1/user/Profiles')
                 .send([postTestData.activePuzzle1])
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + globalTestData.expiredAccessToken)

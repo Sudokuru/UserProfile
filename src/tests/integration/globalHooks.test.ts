@@ -29,7 +29,7 @@ before(function (done) {
  */
 beforeEach (function (done) {
     request
-        .delete('/api/v1/user/activeGames')
+        .delete('/api/v1/user/Profiles')
         .send()
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer ' + token)

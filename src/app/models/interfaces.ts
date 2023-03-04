@@ -47,16 +47,22 @@ interface moves {
 }
 
 /**
- * Below are the interfaces for the {@link userActiveGames} Mongo schemas
+ * Below are the interfaces for the {@link userProfile} Mongo schema
  * //todo make casing of types consistant
  */
 
-export interface userActiveGames {
-    userID: string,
-    puzzle: string,
-    currentTime: number,
-    moves: moves[],
-    numHintsAskedFor: number,
-    numWrongCellsPlayed: number,
-    numWrongCellsPlayedPerStrategy: numWrongCellsPlayedPerStrategy
+export interface UserProfile {
+    userId: string,
+    userPreferences: {
+        savePuzzleData: boolean,
+        theme: string,
+        gamePreferences: {
+            notifyOnWrongCell: boolean,
+            highlightAllSelectedNumber: boolean,
+            highlightSelectedBox: boolean,
+            highlightSelectedRow: boolean,
+            playMusic: boolean,
+            musicIntensify: boolean
+        }
+    }
 }

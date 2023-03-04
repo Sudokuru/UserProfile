@@ -9,7 +9,7 @@ import Assert from "assert";
 
 request = request('http://localhost:3001');
 
-describe('Test Patch requests for /api/v1/user/activeGames', function () {
+describe('Test Patch requests for /api/v1/user/Profiles', function () {
     this.retries(2);
     /*
      * This method populates the database before each test
@@ -18,7 +18,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         postTestData.initializeData();
         request
-            .post('/api/v1/user/activeGames')
+            .post('/api/v1/user/Profiles')
             .send([postTestData.activePuzzle1, postTestData.activePuzzle2,
                 postTestData.activePuzzle3, postTestData.activePuzzle2MovesSwapped])
             .set('Accept', 'application/json')
@@ -34,7 +34,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch empty query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .send({"currentTime": 2000})
@@ -48,7 +48,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({"currentTime": 2000})
@@ -84,7 +84,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch puzzle query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ puzzle: postTestData.puzzle1})
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
@@ -99,7 +99,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({"currentTime": 2000})
@@ -122,7 +122,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch userID query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ userID: "Thomas"})
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
@@ -137,7 +137,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({"currentTime": 2000})
@@ -169,7 +169,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch currentTime query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({"currentTime": 0})
@@ -184,7 +184,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({"currentTime": 2000})
@@ -207,7 +207,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch numHintsAskedFor query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ numHintsAskedFor: 0 })
@@ -222,7 +222,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ numHintsAskedFor: 100 })
@@ -245,7 +245,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch numWrongCellsPlayed query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ numWrongCellsPlayed: 0 })
@@ -260,7 +260,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ numWrongCellsPlayed: 100 })
@@ -283,7 +283,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch moves AND query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ moves: { puzzleCurrentState: postTestData.puzzle2Move1, puzzleCurrentNotesState: postTestData.puzzle2Notes1} })
@@ -298,7 +298,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ moves: { puzzleCurrentState: postTestData.puzzle3Move1, puzzleCurrentNotesState: postTestData.puzzle3Notes1} })
@@ -326,7 +326,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch moves OR query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ moves: { puzzleCurrentState: postTestData.puzzle2Move1} },
@@ -342,7 +342,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ moves: { puzzleCurrentState: postTestData.puzzle3Move1, puzzleCurrentNotesState: postTestData.puzzle3Notes1} })
@@ -374,7 +374,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch NAKED_SINGLE query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SINGLE': 9 })
@@ -389,7 +389,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SINGLE': 1000 })
@@ -414,7 +414,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch HIDDEN_SINGLE query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SINGLE': 9 })
@@ -429,7 +429,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SINGLE': 1000 })
@@ -454,7 +454,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch NAKED_PAIR query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_PAIR': 9 })
@@ -469,7 +469,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_PAIR': 1000 })
@@ -494,7 +494,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch NAKED_TRIPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_TRIPLET': 9 })
@@ -509,7 +509,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_TRIPLET': 1000 })
@@ -534,7 +534,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch NAKED_QUADRUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_QUADRUPLET': 9 })
@@ -549,7 +549,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_QUADRUPLET': 1000 })
@@ -574,7 +574,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch NAKED_QUINTUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_QUINTUPLET': 9 })
@@ -589,7 +589,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_QUINTUPLET': 1000 })
@@ -614,7 +614,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch NAKED_TRIPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SEXTUPLET': 9 })
@@ -629,7 +629,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SEXTUPLET': 1000 })
@@ -654,7 +654,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch NAKED_SEPTUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SEPTUPLET': 9 })
@@ -669,7 +669,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SEPTUPLET': 1000 })
@@ -694,7 +694,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch NAKED_OCTUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_OCTUPLET': 9 })
@@ -709,7 +709,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_OCTUPLET': 1000 })
@@ -734,7 +734,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch HIDDEN_PAIR query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_TRIPLET': 9 })
@@ -749,7 +749,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_PAIR': 1000 })
@@ -774,7 +774,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch HIDDEN_TRIPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_TRIPLET': 9 })
@@ -789,7 +789,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_TRIPLET': 1000 })
@@ -814,7 +814,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch HIDDEN_QUADRUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUADRUPLET': 9 })
@@ -829,7 +829,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUADRUPLET': 1000 })
@@ -854,7 +854,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch HIDDEN_QUINTUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUINTUPLET': 9 })
@@ -869,7 +869,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUINTUPLET': 1000 })
@@ -894,7 +894,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch HIDDEN_SEXTUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEXTUPLET': 9 })
@@ -909,7 +909,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEXTUPLET': 1000 })
@@ -934,7 +934,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch HIDDEN_SEPTUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEPTUPLET': 9 })
@@ -949,7 +949,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEPTUPLET': 1000 })
@@ -974,7 +974,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch HIDDEN_OCTUPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_OCTUPLET': 9 })
@@ -989,7 +989,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_OCTUPLET': 1000 })
@@ -1014,7 +1014,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch POINTING_PAIR query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.POINTING_PAIR': 9 })
@@ -1029,7 +1029,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.POINTING_PAIR': 1000 })
@@ -1054,7 +1054,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch POINTING_TRIPLET query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.POINTING_TRIPLET': 9 })
@@ -1069,7 +1069,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.POINTING_TRIPLET': 1000 })
@@ -1094,7 +1094,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch BOX_LINE_REDUCTION query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.BOX_LINE_REDUCTION': 9 })
@@ -1109,7 +1109,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.BOX_LINE_REDUCTION': 1000 })
@@ -1134,7 +1134,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch X_WING query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.X_WING': 9 })
@@ -1149,7 +1149,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.X_WING': 1000 })
@@ -1174,7 +1174,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch SWORDFISH query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.SWORDFISH': 9 })
@@ -1189,7 +1189,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.SWORDFISH': 1000 })
@@ -1214,7 +1214,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             it('Patch SINGLES_CHAINING query 200 with currentTime and expected response', function (done) {
                 let patchBody;
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.SINGLES_CHAINING': 9 })
@@ -1229,7 +1229,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
                 globalTestData.sleep(1000);
 
                 request
-                    .get('/api/v1/user/activeGames')
+                    .get('/api/v1/user/Profiles')
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
                     .query({ 'numWrongCellsPlayedPerStrategy.SINGLES_CHAINING': 1000 })
@@ -1255,7 +1255,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             // it('Patch by numWrongCellsPlayedPerStrategy query 200 and expected response', function (done) {
             //     request
-            //         .patch('/api/v1/user/activeGames')
+            //         .patch('/api/v1/user/Profiles')
             //         .query(
             //             { 'numWrongCellsPlayedPerStrategy.NAKED_SINGLE': 11 },
             //             { 'numWrongCellsPlayedPerStrategy.HIDDEN_SINGLE': 11 },
@@ -1296,7 +1296,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
         describe('Test code 200 not present PATCH requests', function () {
             it('Patch body is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ userID: "Jimmy" })
                     .set('Content-Type', 'application/json')
                     .set('Authorization', 'Bearer ' + token)
@@ -1310,7 +1310,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch userID is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ userID: "Jimmy" })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1326,7 +1326,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             // todo make valid not found puzzle
             it('Patch puzzle is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ userID: "Jimmy" })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1341,7 +1341,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch currentTime is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ currentTime: 1000 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1357,7 +1357,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             // todo get valid puzzleCurrentState not found
             it('Patch puzzleCurrentState is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ currentTime: 1000 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1373,7 +1373,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
             // todo get valid puzzleCurrentNotesState not found
             it('Patch puzzleCurrentNotesState is not present 200 success error message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ currentTime: 1000 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1388,7 +1388,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch numHintsAskedFor is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ numHintsAskedFor: 100} )
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1403,7 +1403,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch numWrongCellsPlayed is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ numWrongCellsPlayed: 100} )
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1418,7 +1418,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch NAKED_SINGLE is not present 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SINGLE': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1433,7 +1433,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch HIDDEN_SINGLE is not present 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SINGLE': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1448,7 +1448,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch NAKED_PAIR is not present 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_PAIR': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1463,7 +1463,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch NAKED_TRIPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_TRIPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1478,7 +1478,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch NAKED_QUADRUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_QUADRUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1493,7 +1493,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch NAKED_QUINTUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_QUINTUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1508,7 +1508,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch NAKED_SEXTUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SEXTUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1523,7 +1523,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch NAKED_SEPTUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SEPTUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1538,7 +1538,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch NAKED_OCTUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.NAKED_OCTUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1553,7 +1553,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch HIDDEN_PAIR is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_PAIR': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1568,7 +1568,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch HIDDEN_TRIPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_TRIPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1583,7 +1583,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch HIDDEN_QUADRUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUADRUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1598,7 +1598,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch HIDDEN_QUINTUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUINTUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1613,7 +1613,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch HIDDEN_SEXTUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEXTUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1628,7 +1628,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch HIDDEN_SEPTUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEPTUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1643,7 +1643,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch HIDDEN_OCTUPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_OCTUPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1658,7 +1658,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch POINTING_PAIR is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.POINTING_PAIR': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1673,7 +1673,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch POINTING_TRIPLET is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.POINTING_TRIPLET': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1688,7 +1688,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch BOX_LINE_REDUCTION is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.BOX_LINE_REDUCTION': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1703,7 +1703,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch X_WING is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.X_WING': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1718,7 +1718,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch SWORDFISH is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.SWORDFISH': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1733,7 +1733,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
             it('Patch SINGLES_CHAINING is not present returns 200 success message', function (done) {
                 request
-                    .patch('/api/v1/user/activeGames')
+                    .patch('/api/v1/user/Profiles')
                     .query({ 'numWrongCellsPlayedPerStrategy.SINGLES_CHAINING': 100 })
                     .send({"currentTime": 100})
                     .set('Content-Type', 'application/json')
@@ -1764,7 +1764,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch invalid path 2 returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames/invalid')
+                .patch('/api/v1/user/Profiles/invalid')
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
                 .expect('Content-Type', /json/)
@@ -1790,7 +1790,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query invalid userID query returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ userID: ""})
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1804,7 +1804,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query invalid character puzzle query returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ puzzle: "Banana"})
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1818,7 +1818,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query empty puzzle field returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ puzzle: "" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1832,7 +1832,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzle too long returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ puzzle: postTestData.puzzleIsTooLong })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1846,7 +1846,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzle too short returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ puzzle: postTestData.puzzleIsTooShort})
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1860,7 +1860,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzle invalid character returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ puzzle: postTestData.puzzleHasInvalidCharacter })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1874,7 +1874,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query currentTime is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ currentTime: "Banana"} )
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1888,7 +1888,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzleCurrentState is too long returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ moves: {puzzleCurrentState: postTestData.puzzleCurrentStateIsTooLong} })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1902,7 +1902,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzleCurrentState is too short returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ moves: {puzzleCurrentState: postTestData.puzzleCurrentStateIsTooShort} })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1916,7 +1916,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzleCurrentState has invalid character returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ moves: {puzzleCurrentState: postTestData.puzzleCurrentStateHasInvalidCharacter} })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1930,7 +1930,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzleCurrentNotesState is too long returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ moves: {puzzleCurrentNotesState: postTestData.puzzleCurrentNotesStateIsTooLong} })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1944,7 +1944,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzleCurrentNotesState is too short returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ moves: {puzzleCurrentNotesState: postTestData.puzzleCurrentNotesStateIsTooShort} })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1958,7 +1958,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query puzzleCurrentNotesState has invalid character returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ moves: {puzzleCurrentNotesState: postTestData.puzzleCurrentNotesStateHasInvalidCharacter} })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1972,7 +1972,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query numHintsAskedFor is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ numHintsAskedFor: "Banana"} )
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -1986,7 +1986,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query numWrongCellsPlayed is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ numWrongCellsPlayed: "Banana"} )
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2000,7 +2000,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query NAKED_SINGLE is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SINGLE': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2014,7 +2014,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query HIDDEN_SINGLE is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SINGLE': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2028,7 +2028,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query NAKED_PAIR is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.NAKED_PAIR': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2042,7 +2042,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query NAKED_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.NAKED_TRIPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2056,7 +2056,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query NAKED_QUADRUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.NAKED_QUADRUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2070,7 +2070,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query NAKED_QUINTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.NAKED_QUINTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2084,7 +2084,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query NAKED_SEXTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SEXTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2098,7 +2098,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query NAKED_SEPTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.NAKED_SEPTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2112,7 +2112,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query NAKED_OCTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.NAKED_OCTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2126,7 +2126,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query HIDDEN_PAIR is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_PAIR': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2140,7 +2140,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query HIDDEN_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_TRIPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2154,7 +2154,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query HIDDEN_QUADRUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUADRUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2168,7 +2168,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query HIDDEN_QUINTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUINTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2182,7 +2182,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query HIDDEN_SEXTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEXTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2196,7 +2196,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query HIDDEN_SEPTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEPTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2210,7 +2210,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query HIDDEN_OCTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.HIDDEN_OCTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2224,7 +2224,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query POINTING_PAIR is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.POINTING_PAIR': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2238,7 +2238,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query POINTING_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.POINTING_TRIPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2252,7 +2252,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query BOX_LINE_REDUCTION is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.BOX_LINE_REDUCTION': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2266,7 +2266,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query X_WING is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.X_WING': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2280,7 +2280,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query SWORDFISH is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.SWORDFISH': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2294,7 +2294,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch query SINGLES_CHAINING is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .query({ 'numWrongCellsPlayedPerStrategy.SINGLES_CHAINING': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2308,7 +2308,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body currentTime is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ currentTime: "Banana"} )
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2322,7 +2322,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body puzzleCurrentState is too long returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ moves: [{
                     "puzzleCurrentState": postTestData.puzzleCurrentStateIsTooLong,
                     "puzzleCurrentNotesState": postTestData.puzzle2Notes1
@@ -2340,7 +2340,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body puzzleCurrentState is too short returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ moves: [{
                         "puzzleCurrentState": postTestData.puzzleCurrentStateIsTooShort,
                         "puzzleCurrentNotesState": postTestData.puzzle2Notes1
@@ -2358,7 +2358,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body puzzleCurrentState has invalid character returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ moves: [{
                         "puzzleCurrentState": postTestData.puzzleCurrentStateHasInvalidCharacter,
                         "puzzleCurrentNotesState": postTestData.puzzle2Notes1
@@ -2376,7 +2376,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body puzzleCurrentNotesState is too long returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ moves: [{
                         "puzzleCurrentState": postTestData.puzzle2Move1,
                         "puzzleCurrentNotesState": postTestData.puzzleCurrentNotesStateIsTooLong
@@ -2394,7 +2394,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body puzzleCurrentNotesState is too short returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ moves: [{
                         "puzzleCurrentState": postTestData.puzzle2Move1,
                         "puzzleCurrentNotesState": postTestData.puzzleCurrentNotesStateIsTooShort
@@ -2412,7 +2412,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body puzzleCurrentNotesState has invalid character returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ moves: [{
                         "puzzleCurrentState": postTestData.puzzle2Move1,
                         "puzzleCurrentNotesState": postTestData.puzzleCurrentNotesStateHasInvalidCharacter
@@ -2430,7 +2430,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body numHintsAskedFor is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ numHintsAskedFor: "Banana"} )
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2444,7 +2444,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body numWrongCellsPlayed is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ numWrongCellsPlayed: "Banana"} )
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2458,7 +2458,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body NAKED_SINGLE is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.NAKED_SINGLE': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2472,7 +2472,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body HIDDEN_SINGLE is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SINGLE': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2486,7 +2486,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body NAKED_PAIR is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.NAKED_PAIR': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2500,7 +2500,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body NAKED_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.NAKED_TRIPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2514,7 +2514,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body NAKED_QUADRUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.NAKED_QUADRUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2528,7 +2528,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body NAKED_QUINTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.NAKED_QUINTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2542,7 +2542,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body NAKED_SEXTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.NAKED_SEXTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2556,7 +2556,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body NAKED_SEPTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.NAKED_SEPTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2570,7 +2570,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body NAKED_OCTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.NAKED_OCTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2584,7 +2584,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body HIDDEN_PAIR is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.HIDDEN_PAIR': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2598,7 +2598,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body HIDDEN_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.HIDDEN_TRIPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2612,7 +2612,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body HIDDEN_QUADRUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUADRUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2626,7 +2626,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body HIDDEN_QUINTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.HIDDEN_QUINTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2640,7 +2640,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body HIDDEN_SEXTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEXTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2654,7 +2654,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body HIDDEN_SEPTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.HIDDEN_SEPTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2668,7 +2668,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body HIDDEN_OCTUPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.HIDDEN_OCTUPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2682,7 +2682,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body POINTING_PAIR is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.POINTING_PAIR': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2696,7 +2696,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body POINTING_TRIPLET is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.POINTING_TRIPLET': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2710,7 +2710,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body BOX_LINE_REDUCTION is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.BOX_LINE_REDUCTION': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2724,7 +2724,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body X_WING is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.X_WING': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2738,7 +2738,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body SWORDFISH is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.SWORDFISH': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2752,7 +2752,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch body SINGLES_CHAINING is not integer returns 400 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .send({ 'numWrongCellsPlayedPerStrategy.SINGLES_CHAINING': "Banana" })
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + token)
@@ -2768,7 +2768,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
     describe('Test code 401 Patch requests', function () {
         it('Patch no Auth header returns 401 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .set('Content-Type', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(401, globalTestData.ErrorMessage401)
@@ -2780,7 +2780,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch invalid Auth header returns 401 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer')
                 .expect('Content-Type', /json/)
@@ -2793,7 +2793,7 @@ describe('Test Patch requests for /api/v1/user/activeGames', function () {
 
         it('Patch expired Auth token returns 401 error message', function (done) {
             request
-                .patch('/api/v1/user/activeGames')
+                .patch('/api/v1/user/Profiles')
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + globalTestData.expiredAccessToken)
                 .expect('Content-Type', /json/)
