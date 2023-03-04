@@ -1,8 +1,8 @@
 let request = require('supertest');
 require('dotenv').config();
-import { token } from "./data/globalHooks.test";
-import { postTestData } from "./data/postTestData.test";
-import { globalTestData} from "./data/globalTestData.test";
+import { token } from "./globalHooks.test";
+import { postTestData } from "./postTestData.test";
+import { globalTestData} from "./globalTestData.test";
 
 request = request('http://localhost:3001');
 
@@ -31,7 +31,6 @@ describe('Test GET requests for /api/v1/user/activeGames', function () {
                 .set('Authorization', 'Bearer ' + token)
                 .expect('Content-Type', /json/)
                 .expect(function(res) {
-                    console.log(res.body);
                     if (res.body[0] != undefined){
                         res.body[0]._id = "ID";
 
@@ -83,7 +82,6 @@ describe('Test GET requests for /api/v1/user/activeGames', function () {
                 .set('Authorization', 'Bearer ' + token)
                 .expect('Content-Type', /json/)
                 .expect(function(res) {
-                    console.log(res.body);
                     if (res.body[0] != undefined){
                         res.body[0]._id = "ID";
 

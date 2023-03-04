@@ -26,6 +26,10 @@ class globalTestData {
         Error_Message: 'Invalid Permission',
         Status: 401
     };
+
+    static sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    };
 }
 
 export { globalTestData };

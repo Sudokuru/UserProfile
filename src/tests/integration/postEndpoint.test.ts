@@ -1,8 +1,8 @@
 let request = require('supertest');
 require('dotenv').config();
-import { token } from "./data/globalHooks.test";
-import { postTestData } from "./data/postTestData.test";
-import { globalTestData} from "./data/globalTestData.test";
+import { token } from "./globalHooks.test";
+import { postTestData } from "./postTestData.test";
+import { globalTestData} from "./globalTestData.test";
 
 request = request('http://localhost:3001');
 
