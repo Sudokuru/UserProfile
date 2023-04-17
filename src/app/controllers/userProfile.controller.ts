@@ -9,7 +9,7 @@
  */
 
 import {matchedData} from "express-validator";
-const userProfileService = require('../services/userProfiles.service');
+const userProfileService = require('../services/userProfile.service');
 
 /**
  * Returns 201 if userProfileService is successful

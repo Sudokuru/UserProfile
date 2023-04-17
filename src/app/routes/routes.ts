@@ -21,7 +21,7 @@ const checkJwt = auth({
 const { validationErrorHandler } = require('../validationAndSanitation/errorValidation');
 const userProfileController = require ('../controllers/userProfile.controller');
 
-const { validateUserProfileBodyPOST, validateUserProfileParameters, validateUserProfileBodyPATCH } = require("../validationAndSanitation/userProfiles.validationAndSanitation");
+const { validateUserProfileBodyPOST, validateUserProfileParameters, validateUserProfileBodyPATCH } = require("../validationAndSanitation/userProfile.validationAndSanitation");
 
 routes.post("/user/profile", checkJwt, validateUserProfileBodyPOST,  validationErrorHandler, userProfileController.create);
 routes.get("/user/profile", checkJwt, validateUserProfileParameters, validationErrorHandler, userProfileController.search);
