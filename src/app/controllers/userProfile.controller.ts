@@ -39,7 +39,7 @@ async function create(req, res, next) {
  * @param res This is the response object
  * @param next This takes us to the errorHandler if request fails
  */
-async function searchUserProfile(req, res, next) {
+async function search(req, res, next) {
 
     const allData = matchedData(req, { locations: ['query'] });
 
@@ -58,7 +58,7 @@ async function searchUserProfile(req, res, next) {
  * @param res This is the response object
  * @param next This takes us to the errorHandler if request fails
  */
-async function updateUserProfile(req, res, next) {
+async function update(req, res, next) {
 
     const queryData = matchedData(req, { locations: ['query'] });
     const bodyData = matchedData(req, { locations: ['body'] });
@@ -77,7 +77,7 @@ async function updateUserProfile(req, res, next) {
  * @param res This is the response object
  * @param next This takes us to the errorHandler if request fails
  */
-async function removeUserProfile(req, res, next) {
+async function remove(req, res, next) {
 
     const allData = matchedData(req, { locations: ['query'] });
     try {
@@ -87,4 +87,4 @@ async function removeUserProfile(req, res, next) {
     }
 }
 
-export = {create, search: searchUserProfile, update: updateUserProfile, remove: removeUserProfile }
+export = {create, search, update, remove }

@@ -15,7 +15,7 @@ import {body, query} from "express-validator";
  * //todo add more validation and sanitization
  * The astricks are required because we are accessing values from an array
  */
-exports.validateUserProfilesBodyPOST = [
+exports.validateUserProfileBodyPOST = [
     body().isArray().withMessage('body is not an array'),
     body('*.userID', 'userID did not match correct format').isString().isLength({ min: 1 }),
     body('*.userPreferences.savePuzzleData', 'savePuzzleData is not a boolean').optional().isBoolean(),
@@ -34,7 +34,7 @@ exports.validateUserProfilesBodyPOST = [
  * This validation only applies for the query fields
  * //todo add more validation and sanitization
  */
-exports.validateUserProfilesParameters = [
+exports.validateUserProfileParameters = [
     query('*.userID', 'userID did not match correct format').optional().isString().isLength({ min: 1 }),
     query('*.userPreferences.savePuzzleData', 'savePuzzleData is not a boolean').optional().isBoolean(),
     query('*.userPreferences.theme', 'theme is not a correct value').optional().isString().isIn(["light", "dark", "auto"]),
@@ -54,7 +54,7 @@ exports.validateUserProfilesParameters = [
  * the Astricks are not needed here because in this instance we are not storing our values in an array
  * We also leave out the userID and puzzle fields because we do not want to replace those during a PATCH operation
  */
-exports.validateUserActivePuzzlesBodyPATCH = [
+exports.validateUserProfileBodyPATCH = [
     body('*.userPreferences.savePuzzleData', 'savePuzzleData is not a boolean').optional().isBoolean(),
     body('*.userPreferences.theme', 'theme is not a correct value').optional().isString().isIn(["light", "dark", "auto"]),
     body('*.userPreferences.gamePreferences.notifyOnWrongCell', 'notifyOnWrongCell is not a boolean').optional().isBoolean(),

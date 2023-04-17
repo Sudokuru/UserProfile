@@ -28,7 +28,7 @@ async function createUserProfileService(userProfile) {
  * This function calls a helper function to create the inputQuery for the dataBase function
  * @param userProfile this is a JSON object that stores the input query
  */
-async function userProfileSearchService(userProfile) {
+async function searchUserProfile(userProfile) {
     let res = await dataBase.querySearchAND(filterInputQuery(userProfile), UserProfile);
 
     if (res.length == 0){
@@ -44,7 +44,7 @@ async function userProfileSearchService(userProfile) {
  * @param bodyData this stores a JSON object with values to be updated
  * @param queryData this stores a JSON object with values used to retrieve puzzles to be updated
  */
-async function userProfileUpdateService(bodyData, queryData) {
+async function updateUserProfile(bodyData, queryData) {
     return await dataBase.queryUpdate(filterInputQuery(queryData), bodyData, UserProfile);
 }
 
@@ -54,7 +54,7 @@ async function userProfileUpdateService(bodyData, queryData) {
  * A delete request is successful even if the object did not exist.
  * @param userProfile this stores a JSON object that stores the query
  */
-async function userProfileRemoveService(userProfile) {
+async function removeUserProfile(userProfile) {
     return await dataBase.queryDeleteAND(filterInputQuery(userProfile), UserProfile);
 }
 
@@ -78,5 +78,5 @@ function filterInputQuery(userProfile){
     return filterValues;
 }
 
-export = { createUserProfileService, searchUserProfile: userProfileSearchService, updateUserProfile: userProfileUpdateService, removeUserProfile: userProfileRemoveService };
+export = { createUserProfileService, searchUserProfile, updateUserProfile, removeUserProfile };
 
