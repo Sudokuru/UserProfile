@@ -1,5 +1,5 @@
 {
-  "name": "user_active_games",
+  "name": "user_profile",
   "version": "1.0.0",
   "description": "This is the user_active_games service for the sudokuru backend",
   "main": "index.js",
