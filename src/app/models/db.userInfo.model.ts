@@ -25,7 +25,7 @@ const userProfileSchema = new Schema<UserProfile>({
     userId: { type: String, required: true, unique: true },
     userPreferences: {
         savePuzzleData: { type: Boolean, required: true, default: true },
-        theme: { type: String, enum: ['light', 'dark', 'auto'], required: true, default: 'auto' },
+        theme: { type: String, enum: ['light', 'dark', 'auto'], required: true, default: 'dark' },
         gamePreferences: {
             notifyOnWrongCell: { type: Boolean, required: true, default: true },
             highlightAllSelectedNumber: { type: Boolean, required: true, default: true },
