@@ -11,14 +11,14 @@
 import {CustomError, CustomErrorEnum} from "../models/error.model";
 
 const dataBase = require ('./db.service');
-const UserProfile = require("../models/db.userInfo.model");
+const UserProfile = require("../models/db.userProfile.model");
 
 /**
  * This function takes the Active Games JSON objects and sends them to the upload function
  * There is no need for any additional logic here
  * @param userProfile This is an array of Active Games JSON objects puzzles
  */
-async function userProfileCreateService(userProfile) {
+async function createUserProfileService(userProfile) {
     return await dataBase.queryUpload(userProfile, UserProfile);
 }
 
@@ -78,5 +78,5 @@ function filterInputQuery(userProfile){
     return filterValues;
 }
 
-export = { createUserProfile: userProfileCreateService, searchUserProfile: userProfileSearchService, updateUserProfile: userProfileUpdateService, removeUserProfile: userProfileRemoveService };
+export = { createUserProfileService, searchUserProfile: userProfileSearchService, updateUserProfile: userProfileUpdateService, removeUserProfile: userProfileRemoveService };
 

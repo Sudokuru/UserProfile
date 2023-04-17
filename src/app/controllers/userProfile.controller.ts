@@ -19,13 +19,13 @@ const userProfileService = require('../services/userProfile.service');
  * @param res This is the response object
  * @param next This takes us to the errorHandler if request fails
  */
-async function createUserProfile(req, res, next) {
+async function create(req, res, next) {
 
     const allData = Object.values(matchedData(req, { locations: ['body'] }));
     allData.pop();
     try {
         // override successful completion code of 200 to 201 for successful object creation
-        res.status(201).json(await userProfileService.createUserProfile(allData));
+        res.status(201).json(await userProfileService.createUserProfileService(allData));
     } catch(err) {
         next(err);
     }
@@ -87,4 +87,4 @@ async function removeUserProfile(req, res, next) {
     }
 }
 
-export = {create: createUserProfile, search: searchUserProfile, update: updateUserProfile, remove: removeUserProfile }
+export = {create, search: searchUserProfile, update: updateUserProfile, remove: removeUserProfile }

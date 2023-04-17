@@ -19,7 +19,7 @@ const checkJwt = auth({
 });
 
 const { validationErrorHandler } = require('../validationAndSanitation/errorValidation');
-const userProfileController = require ('../controllers/userProfile.controller');
+const userProfileController = require('../controllers/userProfile.controller');
 
 const { validateUserProfileBodyPOST, validateUserProfileParameters, validateUserProfileBodyPATCH } = require("../validationAndSanitation/userProfile.validationAndSanitation");
 
