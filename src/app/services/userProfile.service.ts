@@ -9,7 +9,6 @@
  */
 
 import {CustomError, CustomErrorEnum} from "../models/error.model";
-let dot = require('dot-object');
 
 const dataBase = require ('./db.service');
 const UserProfile = require("../models/db.userInfo.model");
@@ -33,7 +32,7 @@ async function userProfileSearchService(userProfile) {
     let res = await dataBase.querySearchAND(filterInputQuery(userProfile), UserProfile);
 
     if (res.length == 0){
-        throw new CustomError(CustomErrorEnum.USER_ACTIVE_GAME_NOT_FOUND, 404);
+        throw new CustomError(CustomErrorEnum.USER_PROFILE_NOT_FOUND, 404);
     }
     return res;
 }
@@ -71,19 +70,8 @@ function filterInputQuery(userProfile){
         filterValues.push({});
     }
     else{
-        // This is for finding a document that contains a move array value with the two provided puzzleCurrentState and puzzleCurrentNotesState values
-        if (userProfile.moves !== undefined && 'puzzleCurrentState' in userProfile.moves && 'puzzleCurrentNotesState' in userProfile.moves){
-            filterValues.push({ moves: { $elemMatch: { puzzleCurrentState: userProfile.moves.puzzleCurrentState, puzzleCurrentNotesState: userProfile.moves.puzzleCurrentNotesState } } });
-            delete userProfile.moves;
-        }
-
-        // The dot notation is important to be able to retrieve all activeUserGames with a given numWrongCellsPlayedPerStrategy value
-        // Because we don't want to search for an exact mach of that object. We want to do an OR type operation for numWrongCellsPlayedPerStrategy
-        // not an AND type operation
-        // The reason we cannot use dot notation in the request is because express-validator converts it away from dot notation into JSON
-        // I cannot figure out a way to disable that functionality provided by express-validator
         if (Object.keys(userProfile).length !== 0){
-            filterValues.push(dot.dot(userProfile));
+            filterValues.push(userProfile);
         }
     }
 
