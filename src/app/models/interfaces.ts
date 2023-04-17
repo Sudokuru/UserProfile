@@ -58,9 +58,10 @@ export interface UserProfile {
         theme: string,
         gamePreferences: {
             notifyOnWrongCell: boolean,
-            highlightAllSelectedNumber: boolean,
+            highlightAllPeers: boolean,
             highlightSelectedBox: boolean,
             highlightSelectedRow: boolean,
+            highlightSelectedColumn: boolean,
             playMusic: boolean,
             musicIntensify: boolean
         }

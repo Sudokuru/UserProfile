@@ -28,9 +28,10 @@ const userProfileSchema = new Schema<UserProfile>({
         theme: { type: String, enum: ['light', 'dark', 'auto'], required: true, default: 'dark' },
         gamePreferences: {
             notifyOnWrongCell: { type: Boolean, required: true, default: true },
-            highlightAllSelectedNumber: { type: Boolean, required: true, default: true },
+            highlightAllPeers: { type: Boolean, required: true, default: true },
             highlightSelectedBox: { type: Boolean, required: true, default: true },
             highlightSelectedRow: { type: Boolean, required: true, default: true },
+            highlightSelectedColumn: { type: Boolean, required: true, default: true },
             playMusic: { type: Boolean, required: true, default: true },
             musicIntensify: { type: Boolean, required: true, default: true }
         },
