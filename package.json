@@ -1,7 +1,7 @@
 {
   "name": "user_profile",
   "version": "1.0.0",
-  "description": "This is the user_active_games service for the sudokuru backend",
+  "description": "This is the user_profile service for the sudokuru backend",
   "main": "index.js",
   "scripts": {
     "test:unit": "jest --testPathPattern=src/tests/unit",
